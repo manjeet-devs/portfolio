@@ -2,93 +2,246 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Your Name - Portfolio">
-    <title>Your Name - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="images/favicon.ico">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Software Developer Portfolio</title>
+	<!-- Tailwind Config -->
+	<script>
+		tailwind.config = {
+			darkMode: 'class',
+		}
+	</script>
+	<!-- Tailwind CSS CDN -->
+	<script src="https://cdn.tailwindcss.com"></script>
+	<style>
+		/* Custom CSS for animated cards */
+		.card {
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+			transform: translateY(0);
+		}
+
+		.card:hover {
+			transform: translateY(-10px);
+			box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+		}
+	</style>
 </head>
 
-<body>
-    <!-- Header Section -->
-    <header id="header">
-        <div class="container">
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
+	<!-- Navbar -->
+	<nav class="bg-white dark:bg-gray-800 shadow-lg fixed w-full z-10">
+		<div class="max-w-6xl mx-auto px-4">
+			<div class="flex justify-between items-center h-16">
+				<div class="flex-shrink-0">
+					<span class="text-xl font-bold text-blue-500 dark:text-blue-400">Manjeet
+						Vishwakarma</span>
+				</div>
+				<div class="hidden md:flex items-center space-x-4">
+					<a href="#about"
+						class="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">About</a>
+					<a href="#projects"
+						class="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">Projects</a>
+					<a href="#skills"
+						class="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">Skills</a>
+					<a href="#contact"
+						class="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">Contact</a>
+					<!-- Dark/Light Mode Toggle -->
+					<button id="theme-toggle"
+						class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+						<span id="theme-icon">🌙</span>
+					</button>
+				</div>
+				<!-- Mobile Menu Button -->
+				<button class="md:hidden p-2 focus:outline-none" id="mobile-menu-button">
+					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+							d="M4 6h16M4 12h16m-7 6h7"></path>
+					</svg>
+				</button>
+			</div>
+			<!-- Mobile Menu -->
+			<div class="md:hidden hidden" id="mobile-menu">
+				<a href="#about"
+					class="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">About</a>
+				<a href="#projects"
+					class="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">Projects</a>
+				<a href="#skills"
+					class="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">Skills</a>
+				<a href="#contact"
+					class="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">Contact</a>
+			</div>
+		</div>
+	</nav>
 
-    <!-- Hero Section -->
-    <section id="hero">
-        <div class="container">
-            <h1>Hello, I'm <span>Manjeet Kumar Vishwakarma</span></h1>
-            <p>A passionate developer and designer</p>
-            <a href="#projects" class="cta-button">View My Work</a>
-        </div>
-    </section>
+	<!-- Hero Section -->
+	<section class="h-screen flex items-center justify-center bg-gray-200 dark:bg-gray-800">
+		<div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-8">
+			<!-- Photo Section -->
+			<div class="w-full md:w-1/2 flex justify-center">
+				<img src="./mk.jpg" alt="Your Name"
+					class="rounded-full w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 object-cover shadow-lg">
+			</div>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>I am a full-stack developer with a passion for creating clean, user-friendly designs and functional code. I specialize in HTML, CSS, JavaScript, and React. My goal is to build applications that not only work well but also provide a smooth and enjoyable user experience.</p>
-        </div>
-    </section>
+			<!-- Content Section -->
+			<div class="w-full md:w-1/2 text-center md:text-left">
+				<h1 class="text-4xl md:text-5xl font-bold text-blue-500 dark:text-blue-400">Hi, I'm
+					Manjeet Vishwakarma</h1>
+				<p class="mt-4 text-lg md:text-xl text-gray-700 dark:text-gray-300">I build things for
+					the web.</p>
+				<a href="#projects"
+					class="mt-8 inline-block bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600">View
+					My Work</a>
+			</div>
+		</div>
+	</section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <h2>My Projects</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <img src="images/project1.jpg" alt="Project 1">
-                    <h3>Project 1</h3>
-                    <p>A brief description of the project.</p>
-                    <a href="#">View Project</a>
-                </div>
-                <div class="project-card">
-                    <img src="images/project2.jpg" alt="Project 2">
-                    <h3>Project 2</h3>
-                    <p>A brief description of the project.</p>
-                    <a href="#">View Project</a>
-                </div>
-                <div class="project-card">
-                    <img src="images/project3.jpg" alt="Project 3">
-                    <h3>Project 3</h3>
-                    <p>A brief description of the project.</p>
-                    <a href="#">View Project</a>
-                </div>
-            </div>
-        </div>
-    </section>
+	<!-- About Section -->
+	<section id="about" class="py-20 bg-white dark:bg-gray-900">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-3xl font-bold text-blue-500 dark:text-blue-400 text-center">About Me</h2>
+			<p class="mt-4 text-gray-700 dark:text-gray-300 text-center">
+				I'm a software developer with a passion for creating clean, efficient, and scalable
+				solutions. I specialize in front-end and back-end development, and I love learning new
+				technologies.
+			</p>
+		</div>
+	</section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <form action="submit_form.php" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
-    </section>
+	<!-- Projects Section -->
+	<section id="projects" class="py-20 bg-gray-100 dark:bg-gray-800">
+		<div class="max-w-6xl mx-auto px-4">
+			<h2 class="text-3xl font-bold text-blue-500 dark:text-blue-400 text-center">Projects</h2>
+			<div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+				<!-- Project Cards -->
+				<div class="card bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg">
+					<h3 class="text-xl font-bold text-blue-500 dark:text-blue-400">Project 1</h3>
+					<p class="mt-2 text-gray-700 dark:text-gray-300">A brief description of the
+						project.</p>
+					<a href="#"
+						class="mt-4 inline-block text-blue-500 dark:text-blue-400 hover:underline">View
+						Project</a>
+				</div>
+				<div class="card bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg">
+					<h3 class="text-xl font-bold text-blue-500 dark:text-blue-400">Project 1</h3>
+					<p class="mt-2 text-gray-700 dark:text-gray-300">A brief description of the
+						project.</p>
+					<a href="#"
+						class="mt-4 inline-block text-blue-500 dark:text-blue-400 hover:underline">View
+						Project</a>
+				</div>
+				<div class="card bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg">
+					<h3 class="text-xl font-bold text-blue-500 dark:text-blue-400">Project 1</h3>
+					<p class="mt-2 text-gray-700 dark:text-gray-300">A brief description of the
+						project.</p>
+					<a href="#"
+						class="mt-4 inline-block text-blue-500 dark:text-blue-400 hover:underline">View
+						Project</a>
+				</div>
+				<div class="card bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg">
+					<h3 class="text-xl font-bold text-blue-500 dark:text-blue-400">Project 1</h3>
+					<p class="mt-2 text-gray-700 dark:text-gray-300">A brief description of the
+						project.</p>
+					<a href="#"
+						class="mt-4 inline-block text-blue-500 dark:text-blue-400 hover:underline">View
+						Project</a>
+				</div>
+				<div class="card bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg">
+					<h3 class="text-xl font-bold text-blue-500 dark:text-blue-400">Project 1</h3>
+					<p class="mt-2 text-gray-700 dark:text-gray-300">A brief description of the
+						project.</p>
+					<a href="#"
+						class="mt-4 inline-block text-blue-500 dark:text-blue-400 hover:underline">View
+						Project</a>
+				</div>
+				<div class="card bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg">
+					<h3 class="text-xl font-bold text-blue-500 dark:text-blue-400">Project 1</h3>
+					<p class="mt-2 text-gray-700 dark:text-gray-300">A brief description of the
+						project.</p>
+					<a href="#"
+						class="mt-4 inline-block text-blue-500 dark:text-blue-400 hover:underline">View
+						Project</a>
+				</div>
 
-    <!-- Footer Section -->
-    <footer id="footer">
-        <div class="container">
-            <p>&copy; 2024 Your Name. All rights reserved.</p>
-        </div>
-    </footer>
+				<!-- Repeat for other projects -->
+			</div>
+		</div>
+	</section>
 
-    <script src="scripts.js"></script>
+	<!-- Skills Section -->
+	<section id="skills" class="py-20 bg-white dark:bg-gray-900">
+		<div class="max-w-6xl mx-auto px-4">
+			<h2 class="text-3xl font-bold text-blue-500 dark:text-blue-400 text-center">Skills</h2>
+			<div class="mt-8 flex flex-wrap justify-center gap-4">
+				<div class="skill bg-blue-500 text-white px-4 py-2 rounded-full">JavaScript</div>
+				<div class="skill bg-blue-500 text-white px-4 py-2 rounded-full">React</div>
+				<div class="skill bg-blue-500 text-white px-4 py-2 rounded-full">Node.js</div>
+				<div class="skill bg-blue-500 text-white px-4 py-2 rounded-full">Tailwind CSS</div>
+				<div class="skill bg-blue-500 text-white px-4 py-2 rounded-full">Python</div>
+				<div class="skill bg-blue-500 text-white px-4 py-2 rounded-full">Git</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact Section -->
+	<section id="contact" class="py-20 bg-gray-100 dark:bg-gray-800">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-3xl font-bold text-blue-500 dark:text-blue-400 text-center">Contact Me</h2>
+			<form class="mt-8 max-w-lg mx-auto">
+				<div class="mb-4">
+					<label for="name" class="block text-gray-700 dark:text-gray-300">Name</label>
+					<input type="text" id="name"
+						class="w-full px-4 py-2 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+				</div>
+				<div class="mb-4">
+					<label for="email" class="block text-gray-700 dark:text-gray-300">Email</label>
+					<input type="email" id="email"
+						class="w-full px-4 py-2 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+				</div>
+				<div class="mb-4">
+					<label for="message"
+						class="block text-gray-700 dark:text-gray-300">Message</label>
+					<textarea id="message" rows="4"
+						class="w-full px-4 py-2 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+				</div>
+				<button type="submit"
+					class="w-full bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600">Send
+					Message</button>
+			</form>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="bg-white dark:bg-gray-800 py-6">
+		<div class="max-w-6xl mx-auto px-4 text-center">
+			<p class="text-gray-700 dark:text-gray-300">&copy; 2023 Manjeet Vishwakarma. All rights
+				reserved.</p>
+		</div>
+	</footer>
+
+	<!-- JavaScript -->
+	<script>
+		// Dark/Light Mode Toggle
+		const themeToggle = document.getElementById('theme-toggle');
+		const themeIcon = document.getElementById('theme-icon');
+		const body = document.body;
+
+		themeToggle.addEventListener('click', () => {
+			body.classList.toggle('dark');
+			if (body.classList.contains('dark')) {
+				themeIcon.textContent = '☀️';
+			} else {
+				themeIcon.textContent = '🌙';
+			}
+		});
+
+		// Mobile Menu Toggle
+		const mobileMenuButton = document.getElementById('mobile-menu-button');
+		const mobileMenu = document.getElementById('mobile-menu');
+
+		mobileMenuButton.addEventListener('click', () => {
+			mobileMenu.classList.toggle('hidden');
+		});
+	</script>
 </body>
 
 </html>
